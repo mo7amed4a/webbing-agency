@@ -65,7 +65,7 @@ const OurClient = () => {
         <div className="p-[30px] text-center lg:text-left">
           {" "}
    
-          <h1 className="text-xxl font-thin font-oxanium text-5xl mb-9  ">
+          <h1 className="text-xxl font-thin font-oxanium text-5xl mb-4  ">
             What our{" "}
             <span className="text-[#1F7099] text-xxl  font-oxanium">
               Clients

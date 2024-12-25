@@ -21,8 +21,8 @@ export default async function Aboutus() {
   });
   const { about } = res.data.data;
   return (
-    <div className="relative px-4">
-      <div className="relative">
+    <div className="relative ">
+      <div className="relative ">
         <h1 className="text-center text-[#1F7099] text-4xl p-6 mb-72 font-oxanium">
           About Us
         </h1>

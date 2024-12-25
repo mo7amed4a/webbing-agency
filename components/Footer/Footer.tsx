@@ -1,12 +1,7 @@
-// import logo2 from "../../assets/imgs/image (13).png";
-// import call from "../../assets/imgs/call.png";
-// import mail from "../../assets/imgs/image (3).png";
-// import location from "../../assets/imgs/image (2).png";
-// import web from "../../assets/imgs/image (5).png";
 import { Facebook, Github, Linkedin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-
+import { IoMdCall } from "react-icons/io";
 export default function Footer() {
   return (
     <footer className="py-10 px-4 container lg:max-w-[95%] mx-auto">
@@ -40,7 +35,7 @@ export default function Footer() {
                   className="w-6"
                   alt=""
                 />
-                <li>81 Mohamed Mqld, Nasr City</li>
+                <li>12 Ezzeldeen Taha , Tayaran Street, Nasr City </li>
               </div>
               <div className="flex gap-4 item-center">
                 <Image
@@ -50,7 +45,7 @@ export default function Footer() {
                   className="w-6"
                   alt=""
                 />
-                <li>Webbing-Agency@gmail.com</li>
+                <li>Info@Webbing-agency.com</li>
               </div>
               <div className="flex gap-4 item-center">
                 <Image
@@ -60,7 +55,11 @@ export default function Footer() {
                   className="w-6"
                   alt=""
                 />
-                <li>www.webbing-agency.com</li>
+                {/* <Link href="/tel:+201500392959" className=" flex">
+                <h4>Call Us..</h4>
+                <IoMdCall />
+                <li>01500382858</li></Link> */}
+                
               </div>
             </ul>
           </div>

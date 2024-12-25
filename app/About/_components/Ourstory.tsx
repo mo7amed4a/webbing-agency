@@ -5,7 +5,7 @@ import Image from 'next/image'
 import RichViewer from "@/app/projects/_components/RichViewer";
 export default function Ourstory({description}: {description: []}) {
   return (
-    <div className=" flex md:flex-row flex-col justify-around bg-[#eff6ff] pt-40">
+    <div className=" flex md:flex-row flex-col justify-around bg-[#eff6ff] pt-40 px-4">
       <div>
         <div className="  flex gap-9 relative">
         <Image src={img1} className="h-[300px] mt-6 hidden xl:block" alt=""/>
@@ -30,7 +30,7 @@ export default function Ourstory({description}: {description: []}) {
       </div>
 
       <div className="lg:w-2/4">
-        <h1 className="text-center text-3xl p-6 mb-72 font-oxanium">
+        <h1 className="text-center text-3xl p-6  font-oxanium">
           Our <span className="text-[#1F7099] "> Story</span>
         </h1>
 
