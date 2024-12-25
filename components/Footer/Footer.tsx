@@ -1,7 +1,7 @@
 import { Facebook, Github, Linkedin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { IoMdCall } from "react-icons/io";
+
 export default function Footer() {
   return (
     <footer className="py-10 px-4 container lg:max-w-[95%] mx-auto">
@@ -25,7 +25,7 @@ export default function Footer() {
                   className="w-6"
                   alt=""
                 />
-                <li>01024456789</li>
+                <li>1500382858</li>
               </div>
               <div className="flex gap-4 item-center">
                 <Image
@@ -35,7 +35,7 @@ export default function Footer() {
                   className="w-6"
                   alt=""
                 />
-                <li>12 Ezzeldeen Taha , Tayaran Street, Nasr City </li>
+                <li>12 Ezzeldeen Taha , Tayaran Street, Nasr City  </li>
               </div>
               <div className="flex gap-4 item-center">
                 <Image
@@ -47,7 +47,7 @@ export default function Footer() {
                 />
                 <li>Info@Webbing-agency.com</li>
               </div>
-              <div className="flex gap-4 item-center">
+              {/* <div className="flex gap-4 item-center">
                 <Image
                   src={`/assets/imgs/image (5).png`}
                   width={500}
@@ -55,12 +55,8 @@ export default function Footer() {
                   className="w-6"
                   alt=""
                 />
-                {/* <Link href="/tel:+201500392959" className=" flex">
-                <h4>Call Us..</h4>
-                <IoMdCall />
-                <li>01500382858</li></Link> */}
-                
-              </div>
+                <li>www.webbing-agency.com</li>
+              </div> */}
             </ul>
           </div>
 
@@ -102,13 +98,13 @@ export default function Footer() {
 
         <div className="mt-10 border-t border-gray-300 pt-4 text-center  ">
           <div className="flex justify-center ">
-            <Image
-              className="w-[130px] h-full"
-              width={400}
-              height={400}
-              src={`/assets/imgs/image(13).png`}
-              alt=""
-            />
+          <Image
+        className="w-[150px] py-4"
+        width={300}
+        height={100}
+        src={`/assets/imgs/logo.png`}
+        alt=""
+      />
           </div>
         </div>
       </div>
