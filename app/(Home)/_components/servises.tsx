@@ -73,7 +73,7 @@ export default function Services() {
                 </Avatar>
         <div className="text-left">
           <h3 className='text-xl font-semibold text-[#2E2E2E] mb-2'>{services[activeIndex].title}</h3>
-          <p className='text-gray-600 leading-6 mb-4 max-w-[400px]'>
+          <p className='text-gray-600 leading-6 mb-4 max-w-[400px] line-clamp-3'>
             <RichViewer content={services[activeIndex].descripton} />
           </p>
           <Link href={services[activeIndex].slug} className='underline text-[#1F7099] '>Show Projects</Link>
