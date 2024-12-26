@@ -65,7 +65,7 @@ variables: {
       <div className="bg-[#eff6ff]">
         <div className="container lg:max-w-[85%] mx-auto grid md:grid-cols-2 lg:gap-12 ps-4 md:ps-0  py-9 ">
           <div className="">
-            <ul className="space-y-4">
+            {/* <ul className="space-y-4">
               {services.map((service: {
                 title: string;
                 slug: string;
@@ -85,7 +85,7 @@ variables: {
                   <span className={`${(!filters && index === 0) || (filters === service.slug) ? "!text-primary font-bold" : "text-gray-700"} `}>{service.title}</span>
                 </Link>
               ))}
-            </ul>
+            </ul> */}
           </div>
 
           {oneServices && <div>
