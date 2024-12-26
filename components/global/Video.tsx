@@ -1,12 +1,11 @@
 "use client";
 import React, { useEffect } from "react";
 import Video from "next-video";
-import { baseUrl } from "@/lib/axios";
 
 export default function VideoApp({ url }: { url: string }) {
   const [VideoUrl, setVideoUrl] = React.useState(url);
   useEffect(() => {
-    const fullUrl = baseUrl + url;
+    const fullUrl = url;
     fetch(fullUrl)
       .then((res) => {
         if (!res.ok) {

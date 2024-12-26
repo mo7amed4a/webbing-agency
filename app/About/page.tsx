@@ -29,7 +29,7 @@ export default async function Aboutus() {
         <div className="absolute -bottom-1/4 left-1/2 transform -translate-x-1/2 w-full sm:w-auto bg-red-300 rounded-3xl overflow-hidden">
           <Video
             className="lg:size-96 xl:size-[30rem]"
-            src={baseUrl + about?.video?.url}
+            src={about?.video?.url}
             autoPlay
             loop
             muted

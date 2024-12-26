@@ -1,6 +1,6 @@
 import React from "react";
 import Heroservesies from "./_components/Heroservesies";
-import { baseUrl, graphql } from "@/lib/axios";
+import { graphql } from "@/lib/axios";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -67,7 +67,7 @@ variables: {
                 <Link href={`/Ourservises?filters=${service.slug}`} key={index} className={`flex items-center space-x-4`}>
                   <div className={` bg-white p-3 rounded-tr-3xl rounded-bl-3xl rounded-br-lg rounded-tl-lg ${(!filters && index === 0) || (filters === service.slug) ? "ring-1 ring-primary" : ""}`}>
                     <Image
-                      src={baseUrl + service.image.url}
+                      src={ service.image.url}
                       alt="icon"
                       className="w-8 h-8"
                       width={2000}
@@ -92,7 +92,7 @@ variables: {
               Show Projects
             </Link>
             <Image
-              src={baseUrl + oneServices.image.url}
+              src={ oneServices.image.url}
               alt="Project Image"
               className="w-full h-96 object-cover mb-4 rounded-lg"
               width={1500}

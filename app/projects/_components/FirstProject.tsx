@@ -1,4 +1,3 @@
-import { baseUrl } from "@/lib/axios";
 import Image from "next/image";
 import Link from "next/link";
 import RichViewer from "./RichViewer";
@@ -106,7 +105,7 @@ export default async function FirstProject({
                                   width={400}
                                   height={400}
                                   className="w-full h-auto object-contain lg:border rounded-lg"
-                                  src={baseUrl + project.screenMobile.url}
+                                  src={ project.screenMobile.url}
                                   alt="Main image"
                                 />
                               </div>
@@ -119,7 +118,7 @@ export default async function FirstProject({
                                 width={400}
                                 height={400}
                                 className="w-full sm:w-full h-auto border border-black rounded-lg"
-                                src={baseUrl + project.screenWeb.url}
+                                src={ project.screenWeb.url}
                                 alt="Large bottom image"
                               />
                             </ScrollArea>
@@ -130,7 +129,7 @@ export default async function FirstProject({
                                 width={400}
                                 height={400}
                                 className="w-full sm:w-full h-auto border border-black rounded-lg"
-                                src={baseUrl + project.screenWeb.url}
+                                src={ project.screenWeb.url}
                                 alt="Large bottom image"
                               />
                             </ScrollArea>

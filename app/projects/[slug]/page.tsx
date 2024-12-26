@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { baseUrl, graphql } from "@/lib/axios";
+import { graphql } from "@/lib/axios";
 import { redirect } from "next/navigation";
 import RichViewer from "../_components/RichViewer";
 
@@ -98,7 +98,7 @@ variables: {
                 <div key={service.id} className="flex gap-4 items-center">
                   {service.image && service.image.url ? (
                     <Image
-                      src={`${baseUrl}${service.image.url}`}
+                      src={`${service.image.url}`}
                       alt="Service"
                       width={200}
                       height={200}
@@ -198,7 +198,7 @@ variables: {
                             <li key={techIndex} className="flex items-center gap-x-2">
                               <Image
                                
-                                src={baseUrl + tech?.logo[0]?.url}
+                                src={ tech?.logo[0]?.url}
                                 width={500}
                                 height={500}
                                 alt=""

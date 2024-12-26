@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 import { CustomCarousel } from "@/components/CustomCarousel";
 import { CarouselItem } from "@/components/ui/carousel";
-import { api, baseUrl } from "@/lib/axios";
+import { api } from "@/lib/axios";
 import { TeamType } from "@/types/type";
 import Image from "next/image";
 
@@ -40,7 +40,7 @@ export default function OurTeam() {
                     <Image
                       width={400}
                       height={400}
-                      src={baseUrl + member?.image?.url}
+                      src={member?.image?.url}
                       className="w-full h-[535px] object-cover"
                       alt={member.name}
                     />
