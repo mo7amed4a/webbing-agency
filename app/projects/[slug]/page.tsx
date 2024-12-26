@@ -76,12 +76,12 @@ variables: {
         style={{ backgroundImage: "url('/assets/imgs/adelbaba.png')" }}
       >
         <div className="flex flex-col justify-center items-start space-y-2 absolute top-1/2 left-8 transform -translate-y-1/2 p-4">
-          <h2 className="text-[#f3b852] text-4xl font-bold">AdilBaba</h2>
-          <p className="text-primary text-4xl">Multi-Vendor E-commerce Project</p>
+          <h2 className="text-[#f3b852] text-4xl md:text-7xl font-bold [text-shadow:_0_1px_0_var(--tw-shadow-color)]">{project.title}</h2>
+          <p className="text-white text-4xl [text-shadow:_0_1px_0_var(--tw-shadow-color)]"><RichViewer content={project.desc} /></p>
         </div>
 
         <div
-          className="h-full absolute bottom-0 right-0 w-[657px] z-10 rounded-tl-[180px] rounded-bl-[180px] flex flex-col items-center justify-center gap-8 p-8"
+          className="hidden h-full absolute bottom-0 right-0 w-[657px] z-10 rounded-tl-[180px] rounded-bl-[180px] md:flex flex-col items-center justify-center gap-8 p-8"
           style={{ backgroundColor: "hsla(198, 35%, 44%, 0.9)" }}
         >
           <h1 className="text-4xl text-center font-oxanium font-thin bg-gradient-to-b from-[#71a2b7] to-[#ffffff] bg-clip-text text-transparent">
@@ -233,7 +233,7 @@ variables: {
         <p className="text-lg font-bold mt-2">{project.title}</p>
       </div>
 
-      <div className="prose my-10 text-center container lg:max-w-[85%] mx-auto">
+      <div className="prose text-wrap my-10 text-center container lg:max-w-[85%] mx-auto">
         <RichViewer content={project.description} />
       </div>
 

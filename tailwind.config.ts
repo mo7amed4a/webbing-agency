@@ -9,10 +9,15 @@ export default {
   ],
   theme: {
     extend: {
+      textShadow: {
+        sm: '_0_1px_0_rgb(0_0_0_/_40%',
+        DEFAULT: '0 2px 4px var(--tw-shadow-color)',
+        lg: '0 8px 16px var(--tw-shadow-color)',
+      },
       typography: {
         DEFAULT: {
           css: {
-            maxWidth: "100%", // add required value here
+            maxWidth: "95%", // add required value here
           },
         },
       },
@@ -68,5 +73,19 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography"), require('tailwindcss/plugin')(
+    function ({ matchUtilities, theme }: {
+      matchUtilities: any;
+      theme: any;
+    }) {
+      matchUtilities(
+        {
+          'text-shadow': (value: string) => ({
+            textShadow: value,
+          }),
+        },
+        { values: theme('textShadow') }
+      )
+    }
+  )],
 } satisfies Config;

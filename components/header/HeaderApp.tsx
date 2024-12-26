@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import { Badge } from "../ui/badge";
+import Offer from "./comonents/offer";
 
 const links = [
   { name: "Home", href: "/" },
@@ -22,11 +22,8 @@ export function HeaderApp() {
   return (
     <div>
       <nav className="bg-white fixed w-full z-20 top-0 start-0">
-        <div className="flex justify-center items-center">
-          <div className="pt-2 -mb-4 px-4 rounded-full text-gray-600 flex space-x-2">
-            <p>over lorem o jkdnn  kjn kjn oo</p><Badge  className="tent-bold">40%</Badge>
-          </div>
-        </div>
+          <Offer />
+       
         <div className="container lg:max-w-[95%] flex flex-wrap items-center justify-between mx-auto p-4">
           <Link
             href="/"
