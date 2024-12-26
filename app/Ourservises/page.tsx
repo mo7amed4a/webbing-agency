@@ -3,6 +3,7 @@ import Heroservesies from "./_components/Heroservesies";
 import { graphql } from "@/lib/axios";
 import Image from "next/image";
 import Link from "next/link";
+import RichViewer from "../projects/_components/RichViewer";
 
 export default async function Servesies({
   searchParams,
@@ -15,10 +16,15 @@ export default async function Servesies({
   services {
     title
     slug
+    icon {
+      alternativeText
+      url
+    }
     image {
       alternativeText
       url
     }
+    descripton
     details {
       description
     }
@@ -32,6 +38,7 @@ export default async function Servesies({
   services(filters: $filters) {
     title
     slug
+    descripton
     image {
       alternativeText
       url
@@ -62,12 +69,12 @@ variables: {
               {services.map((service: {
                 title: string;
                 slug: string;
-                image: { url: string };
+                icon: { url: string };
               }, index:number) => (
                 <Link href={`/Ourservises?filters=${service.slug}`} key={index} className={`flex items-center space-x-4`}>
                   <div className={` bg-white p-3 rounded-tr-3xl rounded-bl-3xl rounded-br-lg rounded-tl-lg ${(!filters && index === 0) || (filters === service.slug) ? "ring-1 ring-primary" : ""}`}>
                     <Image
-                      src={ service.image.url}
+                      src={ service?.icon?.url}
                       alt="icon"
                       className="w-8 h-8"
                       width={2000}
@@ -85,6 +92,9 @@ variables: {
             <h2 className="text-3xl font-semibold mb-6 text-gray-900">
               {oneServices.title}
             </h2>
+            <p>
+              <RichViewer content={oneServices.descripton} />
+            </p>
             <Link
               href={`/projects?projects=${oneServices.slug}`}
               className="text-[#1f7099] hover:underline mb-4 inline-block"
@@ -92,7 +102,7 @@ variables: {
               Show Projects
             </Link>
             <Image
-              src={ oneServices.image.url}
+              src={oneServices?.image?.url}
               alt="Project Image"
               className="w-full h-96 object-cover mb-4 rounded-lg"
               width={1500}
@@ -103,7 +113,7 @@ variables: {
               {oneServices?.details?.map((item: {
                 description: string
               }, index: number) => (
-                <p className="relative before:absolute before:size-2 before:bg-primary before:top-1/2 before:-translate-y-1/2 before:-left-4 before:rounded-full" key={index}>{item.description}</p>
+                <p className="relative before:absolute before:size-2 before:bg-primary before:top-3 before:-translate-y-1/2 before:-left-4 before:rounded-full" key={index}>{item.description}</p>
               ))}
             </div>
           </div>}

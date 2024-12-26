@@ -43,6 +43,10 @@ const Projectdetails = async ({
         alternativeText
         url
       }
+      icon {
+        alternativeText
+        url
+      }
       technologies {
         name
         logo {
@@ -77,7 +81,7 @@ variables: {
       >
         <div className="flex flex-col justify-center items-start space-y-2 absolute top-1/2 left-8 transform -translate-y-1/2 p-4">
           <h2 className="text-[#f3b852] text-4xl md:text-7xl font-bold [text-shadow:_0_1px_0_var(--tw-shadow-color)]">{project.title}</h2>
-          <p className="text-white text-4xl [text-shadow:_0_1px_0_var(--tw-shadow-color)]"><RichViewer content={project.desc} /></p>
+          <p className="text-white text-4xl [text-shadow:_0_1px_0_var(--tw-shadow-color)] lg:w-2/4 text-wrap"><RichViewer content={project.desc} /></p>
         </div>
 
         <div
@@ -93,12 +97,12 @@ variables: {
               (service: {
                 id: number;
                 title: string;
-                image: { url: string };
+                icon: { url: string };
               }) => (
                 <div key={service.id} className="flex gap-4 items-center">
-                  {service.image && service.image.url ? (
+                  {service.icon && service.icon.url ? (
                     <Image
-                      src={`${service.image.url}`}
+                      src={`${service.icon.url}`}
                       alt="Service"
                       width={200}
                       height={200}

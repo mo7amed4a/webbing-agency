@@ -3,9 +3,11 @@ import Link from "next/link";
 import RichViewer from "./RichViewer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { ServiceType } from "@/app/(Home)/_components/servises";
 
 export default async function FirstProject({
   projects,
+  services
 }: {
   projects: {
     title: string;
@@ -18,7 +20,8 @@ export default async function FirstProject({
     screensMobile: {
       url: string;
     }[];
-  }[];
+  }[],
+  services: ServiceType[]
 }) {
   return (
     projects && (
@@ -28,18 +31,9 @@ export default async function FirstProject({
             <li className="text-[#1F7099] font-bold">
               <Link href="/">All</Link>
             </li>
-            <li>
-              <Link href="/projects?projects=applications">Applications</Link>
-            </li>
-            <li>
-              <Link href="/projects?projects=websites">Websites</Link>
-            </li>
-            <li>
-              <Link href="/projects?projects=logos">Logos</Link>
-            </li>
-            <li>
-              <Link href="/projects?projects=social-media">Social Media</Link>
-            </li>
+           {services && services.map((service: ServiceType) => <li key={service.slug}>
+              <Link href={`/projects?projects=${service.slug}`}>{service.title}</Link>
+            </li>)}
           </ul>
         </div>
         <div className="pt-12">
@@ -81,14 +75,16 @@ export default async function FirstProject({
                           )
                         )}
                       </CardDescription>
-                      <p className="text-muted-foreground text-lg flex flex-wrap">
+                      <div className="text-muted-foreground text-lg flex flex-wrap">
                         <span className="text-primary">
                           Project Description:{" "}
                         </span>
-                        {project?.description && (
-                          <RichViewer content={project?.description} />
-                        )}
-                      </p>
+                        <p className="line-clamp-6">
+                          {project?.description && (
+                            <RichViewer content={project?.description} />
+                          )}
+                        </p>
+                      </div>
                       <Link
                         href={"/"}
                         className="text-blue-500 mt-4 underline block"
@@ -129,7 +125,7 @@ export default async function FirstProject({
                                 width={400}
                                 height={400}
                                 className="w-full sm:w-full h-auto border border-black rounded-lg"
-                                src={ project.screenWeb.url}
+                                src={project.screenWeb.url}
                                 alt="Large bottom image"
                               />
                             </ScrollArea>
