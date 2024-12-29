@@ -19,7 +19,6 @@ export default function Services() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isFading, setIsFading] = useState(true);
 
-
   const [services, setServices] = useState<ServiceType[] | null>(null);
   useEffect(() => {
     graphql
@@ -68,16 +67,23 @@ export default function Services() {
           }`}
         >
           <Avatar className="size-16 me-4">
-                  <AvatarImage src={services[activeIndex].icon.url} />
-                  <AvatarFallback>WA</AvatarFallback>
-                </Avatar>
-        <div className="text-left">
-          <h3 className='text-xl font-semibold text-[#2E2E2E] mb-2'>{services[activeIndex].title}</h3>
-          <p className='text-gray-600 leading-6 mb-4 max-w-[400px] line-clamp-3'>
-            <RichViewer content={services[activeIndex].descripton} />
-          </p>
-          <Link href={services[activeIndex].slug} className='underline text-[#1F7099] '>Show Projects</Link>
-        </div>
+            <AvatarImage src={services[activeIndex].icon.url} />
+            <AvatarFallback>WA</AvatarFallback>
+          </Avatar>
+          <div className="text-left">
+            <h3 className="text-xl font-semibold text-[#2E2E2E] mb-2">
+              {services[activeIndex].title}
+            </h3>
+            <p className="text-gray-600 leading-6 mb-4 max-w-[400px] line-clamp-3">
+              <RichViewer content={services[activeIndex].descripton} />
+            </p>
+            <Link
+              href={services[activeIndex].slug}
+              className="underline text-[#1F7099] "
+            >
+              Show Projects
+            </Link>
+          </div>
         </div>
 
         <div className="flex flex-col lg:flex-row container gap-6 mx-auto mt-16">
