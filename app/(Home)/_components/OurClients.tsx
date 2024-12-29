@@ -3,7 +3,6 @@ import { CustomCarousel } from "@/components/CustomCarousel";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { CarouselItem } from "@/components/ui/carousel";
-import Image from "next/image";
 import React from "react";
 
 const OurClient = () => {
