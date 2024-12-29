@@ -14,11 +14,11 @@ export default function Hero() {
       <Carousel className='flex px-10 container mt-14 lg:max-w-[95%] mx-auto'>
         <CarouselContent className='w-full min-h-screen'>
           <CarouselItem className='px-4 flex flex-col-reverse lg:flex-row items-center justify-center lg:justify-between'>
-          <div className="lg:w-1/2 p-4 flex flex-col items-center lg:items-start text-center lg:text-left">
-            <h2 className="text-6xl  font-oxanium text-black  mb-8">
+          <div className="lg:w-1/2 md:p-4 flex flex-col items-center lg:items-start text-center lg:text-left">
+            <h2 className="text-4xl md:text-6xl  font-oxanium text-black  mb-8">
             Transforming Ideas into Digital Solutions
             </h2>
-            <p className=" text-2xl font-thin mb-5">
+            <p className="text-lg md:text-2xl font-thin mb-5">
               We  tt deliver innovative UI/UX design, website and app development, and social media solutions tailored to your business needs. Let’s turn your ideas into impactful digital solutions.
             </p>
             <button

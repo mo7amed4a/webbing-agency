@@ -3,7 +3,7 @@ import React from "react";
 export default function Ourvalues() {
   return (
     <div className="bg-[#eff6ff]">
-      <div className="p-24">
+      <div className="px-4 md:p-24">
         <div className="flex">
           <div className="w-full mx-auto relative flex items-center justify-around overflow-hidden gap-8">
             <div className="hidden lg:block absolute top-1/2 left-[15%] right-[15%] border-t-2 border-dashed border-gray-400"></div>
@@ -21,7 +21,7 @@ export default function Ourvalues() {
           </div>
         </div>
 
-        <div className="flex lg:flex-row flex-col gap-8 lg:gap-0 justify-around">
+        <div className="flex lg:flex-row flex-col gap-8 lg:gap-0 justify-around w-full my-10 md:my-0">
           <div className="text-center">
             <p className="font-bold mb-3">Innovation & Excellence</p>
             <span className="text-[#929497]">

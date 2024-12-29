@@ -1,5 +1,6 @@
 "use client";
 import { CustomCarousel } from "@/components/CustomCarousel";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { CarouselItem } from "@/components/ui/carousel";
 import Image from "next/image";
@@ -80,16 +81,11 @@ const OurClient = () => {
               {slides.map((slide, index) => (
                 <CarouselItem key={index} className="md:basis-2/4 ps-11">
                     <Card className="flex ">
-                    
-                    
                       <CardHeader className="p-4">
-                        <Image
-                          width={400}
-                          height={400}
-                          src={slide.img}
-                          className="w-[60px] h-[60px] rounded-full object-cover mr-4"
-                          alt=""
-                        />
+                        <Avatar>
+                          <AvatarImage src={slide.img} />
+                          <AvatarFallback>CN</AvatarFallback>
+                        </Avatar>
                       </CardHeader>
                       <CardContent className="p-4">
                         <h1 className="text-black text-2xl mb-2">

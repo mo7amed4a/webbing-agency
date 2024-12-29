@@ -22,27 +22,27 @@ export default function Footer() {
                   src={`/assets/imgs/call.png`}
                   width={500}
                   height={500}
-                  className="w-6"
+                  className="size-6"
                   alt=""
                 />
                 <li>1500382858</li>
               </div>
-              <div className="flex gap-4 item-center">
+              <a href="https://maps.app.goo.gl/fjJiGYv2QLVt6RsE6" className="flex gap-4 item-center">
                 <Image
                   src={`/assets/imgs/image (2).png`}
                   width={500}
                   height={500}
-                  className="w-6"
+                  className="size-7"
                   alt=""
                 />
                 <li>12 Ezzeldeen Taha , Tayaran Street, Nasr City  </li>
-              </div>
+              </a>
               <div className="flex gap-4 item-center">
                 <Image
                   src={`/assets/imgs/image (3).png`}
                   width={500}
                   height={500}
-                  className="w-6"
+                  className="size-6"
                   alt=""
                 />
                 <li>Info@Webbing-agency.com</li>

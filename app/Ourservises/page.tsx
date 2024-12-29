@@ -63,8 +63,8 @@ variables: {
       <Heroservesies></Heroservesies>
 
       <div className="bg-[#eff6ff]">
-        <div className="container lg:max-w-[85%] mx-auto grid md:grid-cols-2 lg:gap-12 ps-4 md:ps-0  py-9 ">
-          <div className="">
+        <div className="container lg:max-w-[85%] mx-auto grid md:grid-cols-2 lg:gap-12 md:ps-0  py-9 space-y-4">
+          <div className="px-4">
             <ul className="space-y-4">
               {services.map((service: {
                 title: string;
@@ -88,7 +88,7 @@ variables: {
             </ul>
           </div>
 
-          {oneServices && <div>
+          {oneServices && <div className="px-4">
             <h2 className="text-3xl font-semibold mb-6 text-gray-900">
               {oneServices.title}
             </h2>

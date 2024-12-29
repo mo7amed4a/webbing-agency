@@ -56,8 +56,8 @@ export default function Services() {
 
   return (
     services && (
-      <div className="relative container lg:max-w-[80%] mx-auto">
-        <h1 className="text-center  p-6 font-thin mb-5 font-oxanium text-5xl  ">
+      <div className="relative container lg:max-w-[80%] mx-auto px-4">
+        <h1 className="text-center p-6 font-thin mb-5 font-oxanium text-5xl  ">
           Our <span className="text-[#1F7099] ">Services</span>
         </h1>
 

@@ -29,7 +29,7 @@ export default function Ourstory({description}: {description: []}) {
         </div>
       </div>
 
-      <div className="lg:w-2/4">
+      <div className="lg:w-2/4 text-center">
         <h1 className="text-center text-3xl p-6  font-oxanium">
           Our <span className="text-[#1F7099] "> Story</span>
         </h1>
