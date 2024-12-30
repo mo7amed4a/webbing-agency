@@ -1,13 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
 import RichViewer from "./RichViewer";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ScrollArea } from "@/components/ui/scroll-area";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { ServiceType } from "@/app/(Home)/_components/servises";
 
 export default async function FirstProject({
   projects,
-  services
+  services,
 }: {
   projects: {
     title: string;
@@ -20,21 +26,29 @@ export default async function FirstProject({
     screensMobile: {
       url: string;
     }[];
-  }[],
-  services: ServiceType[]
+  }[];
+  services: ServiceType[];
 }) {
   return (
     projects && (
       <div className="">
-        <div className=" container mx-auto ">
-          <ul className=" flex justify-around text-[#b0a8a8] pt-5">
-            <li className="text-[#1F7099] font-bold">
-              <Link href="/">All</Link>
-            </li>
-           {services && services.map((service: ServiceType) => <li key={service.slug}>
-              <Link href={`/projects?projects=${service.slug}`}>{service.title}</Link>
-            </li>)}
-          </ul>
+        <div className=" container mx-auto">
+          <ScrollArea className="w-full px-4">
+            <ul className="w-full flex flex-nowrap justify-around text-[#b0a8a8] pt-5 gap-4">
+              <li className="text-[#1F7099] font-bold text-nowrap">
+                <Link href="/">All</Link>
+              </li>
+              {services &&
+                services.map((service: ServiceType) => (
+                  <li key={service.slug} className="text-nowrap">
+                    <Link href={`/projects?projects=${service.slug}`}>
+                      {service.title}
+                    </Link>
+                  </li>
+                ))}
+            </ul>
+            <ScrollBar orientation="horizontal" />
+          </ScrollArea>
         </div>
         <div className="pt-12">
           <div className="container mx-auto grid gap-4">
@@ -62,9 +76,9 @@ export default async function FirstProject({
                       <CardTitle className="text-2xl sm:text-3xl font-bold mb-4 text-wrap">
                         <h2>{project.title}</h2>
                       </CardTitle>
-                      <CardDescription className="text-lg text-muted-foreground">
+                      {/* <CardDescription className="text-lg text-muted-foreground">
                         <RichViewer content={project?.desc} />
-                      </CardDescription>
+                      </CardDescription> */}
                       <CardDescription className="text-base sm:text-lg mb-2 flex gap-x-2 text-muted-foreground">
                         <span className="text-primary">Services Offered:</span>
                         {project.services.map(
@@ -96,31 +110,34 @@ export default async function FirstProject({
                       <div className="grid grid-cols-2 gap-4 items-center h-full">
                         <ScrollArea className="lg:h-[32rem]">
                           {project.screenMobile && (
-                              <div className="w-full h-auto sm:mr-8">
-                                <Image
-                                  width={400}
-                                  height={400}
-                                  className="w-full h-auto object-contain lg:border rounded-lg"
-                                  src={ project.screenMobile.url}
-                                  alt="Main image"
-                                />
-                              </div>
-                            )}
-                        </ScrollArea>
-                        <div className="grid items-center gap-4">
-                        {project.screenWeb && (
-                            <ScrollArea className="h-64" >
+                            <div className="w-full h-auto sm:mr-8">
                               <Image
                                 width={400}
                                 height={400}
-                                className="w-full sm:w-full h-auto border border-black rounded-lg"
-                                src={ project.screenWeb.url}
-                                alt="Large bottom image"
+                                className="w-full h-auto object-contain lg:border rounded-lg"
+                                src={project.screenMobile.url}
+                                alt="Main image"
                               />
-                            </ScrollArea>
+                            </div>
                           )}
-                            {project.screenWeb && (
-                            <ScrollArea className="h-64" >
+                        </ScrollArea>
+                        <div className="grid items-center gap-4">
+                          <div className="w-full flex h-full gap-4">
+                            {project.screensMobile && project.screensMobile.map((e, index) => (
+                              <ScrollArea key={index} className="h-64 w-full">
+                                <Image
+                                  width={400}
+                                  height={400}
+                                  className="w-full h-auto border border-black rounded-lg"
+                                  src={e.url}
+                                  alt="Large bottom image"
+                                />
+                              </ScrollArea>
+                            )
+                            )}
+                          </div>
+                          {project.screenWeb && (
+                            <ScrollArea className="h-64">
                               <Image
                                 width={400}
                                 height={400}
@@ -132,12 +149,8 @@ export default async function FirstProject({
                           )}
                         </div>
                       </div>
-
-
-                      
                     </CardContent>
                   </Card>
-
                 </Link>
               )
             )}

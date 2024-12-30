@@ -17,7 +17,7 @@ export default function Footer() {
           <div className="flex flex-col space-y-4">
             <h3 className="text-lg font-semibold text-gray-900">Contact Us</h3>
             <ul className="space-y-2 text-gray-600">
-              <div className="flex gap-4 item-center">
+              <a href="tel:+201500382858" className="flex gap-4 item-center">
                 <Image
                   src={`/assets/imgs/call.png`}
                   width={500}
@@ -25,8 +25,8 @@ export default function Footer() {
                   className="size-6"
                   alt=""
                 />
-                <li>1500382858</li>
-              </div>
+                <li>+201500382858</li>
+              </a>
               <a href="https://maps.app.goo.gl/fjJiGYv2QLVt6RsE6" className="flex gap-4 item-center">
                 <Image
                   src={`/assets/imgs/image (2).png`}
@@ -37,7 +37,7 @@ export default function Footer() {
                 />
                 <li>12 Ezzeldeen Taha , Tayaran Street, Nasr City  </li>
               </a>
-              <div className="flex gap-4 item-center">
+              <a href="mailto:Info@Webbing-agency.com" className="flex gap-4 item-center">
                 <Image
                   src={`/assets/imgs/image (3).png`}
                   width={500}
@@ -46,7 +46,7 @@ export default function Footer() {
                   alt=""
                 />
                 <li>Info@Webbing-agency.com</li>
-              </div>
+              </a>
               {/* <div className="flex gap-4 item-center">
                 <Image
                   src={`/assets/imgs/image (5).png`}

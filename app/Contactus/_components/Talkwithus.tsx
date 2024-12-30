@@ -49,15 +49,18 @@ export default function Contactus() {
           </p>
           <ul className="space-y-4">
             <li className="flex items-center">
-              <span className="material-icons mr-2">phone</span> 01012345678
+              <span className="material-icons mr-2">phone</span> <a href="tel:+201500382858">+201500382858</a>
             </li>
             <li className="flex items-center">
-              <span className="material-icons mr-2">email</span> demo@gmail.com
+              <span className="material-icons mr-2">email</span> <a href="mailto:info@webbing-agency.com">info@webbing-agency.com</a>
             </li>
-            <li className="flex items-center">
-              <span className="material-icons mr-2">location_on</span> 81
-              Mohamed Mqld, Nasr City
+            <li className="flex items-center flex-wrap">
+              <span className="material-icons mr-2">location_on</span>
+              <a href="https://maps.app.goo.gl/fjJiGYv2QLVt6RsE6" className="flex gap-4 item-center text-xs md:ext-base">
+               12 Ezzeldeen Taha , Tayaran Street, Nasr City 
+              </a>
             </li>
+           
           </ul>
         </div>
 

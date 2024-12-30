@@ -30,9 +30,9 @@ export default function Offer() {
   return (
     data && data.view && (
         <div className="flex justify-center items-center bg-primary py-3 animate-pulse">
-            <Link href="/Contactus" className="px-4 rounded-full text-gray-100 flex space-x-2 text-xl">
+            <Link href="/Contactus" className="px-4 rounded-full text-gray-100 flex space-x-2 md:text-xl">
                 <p className="font-oxanium ">{data.text}</p>
-                <Badge className="tent-bold font- bg-white text-primary animate-pulse ">{data.percentage}%</Badge>
+                <Badge className="tent-bold p-0 md:p-2 bg-white text-primary animate-pulse ">{data.percentage}%</Badge>
             </Link>
         </div>
     )
