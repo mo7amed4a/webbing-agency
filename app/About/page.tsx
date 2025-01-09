@@ -1,13 +1,13 @@
 import React from "react";
 import Video from "next-video";
 import part from "../../public/assets/imgs/image (61).png";
-import Ourstory from "./_components/Ourstory";
-import Ourvalues from "./_components/Ourvalues";
 import Image from "next/image";
 import axios from "axios";
 import { baseUrl } from "@/lib/axios";
+import OurStory from "./_components/Ourstory";
+import ValuesList from "./_components/ValuesList";
 
-export default async function Aboutus() {
+export default async function AboutUs() {
   const res = await axios.post(baseUrl + "/graphql", {
     query: `query About {
   about {
@@ -22,24 +22,31 @@ export default async function Aboutus() {
   const { about } = res.data.data;
   return (
     <div className="relative ">
-      <div className="relative p-4">
-        <h1 className="text-center text-[#1F7099] text-4xl p-6 mb-72 font-oxanium">
-          About Us
-        </h1>
-        <div className="absolute -bottom-1/4 left-1/2 transform -translate-x-1/2 w-full sm:w-auto rounded-3xl overflow-hidden px-4">
-          <Video
-            className="lg:size-96 xl:size-[30rem] overflow-hidden rounded-3xl"
-            src={about?.video?.url}
-            autoPlay
-            loop
-            muted
-          />
+      <section className="relative">
+        <div className="mt-40">
+          <h1 className="text-center text-[#1F7099] text-4xl p-6 font-oxanium">
+            About Us
+          </h1>
         </div>
-        <Image src={part} className=" w-full" alt="" />
-      </div>
+        <div className="px-4">
+          <div className="mx-auto overflow-hidden -mb-40 relative z-10">
+            <Video
+              className="!w-96 xl:!w-[30rem] h-auto mx-auto overflow-hidden rounded-3xl"
+              src={about?.video?.url}
+              autoPlay
+              loop
+              muted
+            />
+          </div>
+        </div>
+        <Image src={part} className="w-full" alt="" />
+      </section>
 
-      <Ourstory description={about?.description}></Ourstory>
-      <Ourvalues></Ourvalues>
+        <section className="bg-[#eff6ff] pt-40 px-4 pb-40 space-y-10 md:space-y-32">
+          <OurStory description={about?.description} />
+          <ValuesList />
+        </section>
+
     </div>
   );
 }

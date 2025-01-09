@@ -60,12 +60,12 @@ const OurClient = () => {
   ];
 
   return (
-    <div className="w-full h-[500px] bg-[#EFF6FF]">
+    <div className="w-full h-[500px]">
       <div className="container mx-auto">
         <div className="p-[30px] text-center lg:text-left">
           {" "}
    
-          <h1 className="text-xxl font-thin font-oxanium text-5xl mb-4  ">
+          <h1 className="text-xxl font-thin font-oxanium md:text-5xl text-3xl  mb-3  " >
             What our{" "}
             <span className="text-[#1F7099] text-xxl  font-oxanium">
               Clients
@@ -80,13 +80,13 @@ const OurClient = () => {
               {slides.map((slide, index) => (
                 <CarouselItem key={index} className="md:basis-2/4 ps-11">
                     <Card className="flex ">
-                      <CardHeader className="p-4">
+                      <CardHeader className="p-4 " >
                         <Avatar>
                           <AvatarImage src={slide.img} />
                           <AvatarFallback>CN</AvatarFallback>
                         </Avatar>
                       </CardHeader>
-                      <CardContent className="p-4">
+                      <CardContent className="p-4" >
                         <h1 className="text-black text-2xl mb-2">
                           {slide.title}
                         </h1>
@@ -100,7 +100,9 @@ const OurClient = () => {
                       </CardContent>
                     </Card>
                 </CarouselItem>
+                
               ))}
+            
             </CustomCarousel>
           </div>
         </div>

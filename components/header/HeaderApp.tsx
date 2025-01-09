@@ -22,8 +22,7 @@ export function HeaderApp() {
   return (
     <div>
       <nav className="bg-white fixed w-full z-20 top-0 start-0">
-          <Offer />
-       
+        <Offer />
         <div className="container lg:max-w-[95%] flex flex-wrap items-center justify-between mx-auto p-4">
           <Link
             href="/"

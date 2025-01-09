@@ -13,10 +13,10 @@ export default function Footer() {
         alt=""
       />
       <div>
-        <div className="flex flex-col md:flex-row justify-between space-y-10 md:space-y-0">
-          <div className="flex flex-col space-y-4">
-            <h3 className="text-lg font-semibold text-gray-900">Contact Us</h3>
-            <ul className="space-y-2 text-gray-600">
+        <div className="grid grid-cols-2 md:grid-cols-3 w-full">
+          <div className="flex flex-col space-y-4 order-2 md:order-1">
+            <h3 className="md:text-lg font-semibold text-gray-900">Contact Us</h3>
+            <ul className="space-y-2 text-gray-600 text-xs md:text-base">
               <a href="tel:+201500382858" className="flex gap-4 item-center">
                 <Image
                   src={`/assets/imgs/call.png`}
@@ -59,10 +59,9 @@ export default function Footer() {
               </div> */}
             </ul>
           </div>
-
-          <div className="flex flex-col space-y-4">
-            <h3 className="text-lg font-semibold text-gray-900">Quick Links</h3>
-            <ul className="space-y-2 text-gray-600">
+          <div className="flex flex-col space-y-4 order-1 md:order-2">
+            <h3 className="md:text-lg font-semibold text-gray-900">Quick Links</h3>
+            <ul className="space-y-2 text-gray-600 text-sm md:text-base">
               <li>
                 <Link href={'/'} >Home</Link>
               </li>
@@ -77,20 +76,19 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-
-          <div className="flex flex-col space-y-4">
+          <div className="flex flex-col space-y-2 order-3 mt-5 md:mt-0">
             <h3 className="text-lg font-semibold text-gray-900">
               Social Media
             </h3>
-            <div className="flex space-x-2">
+            <div className="flex gap-x-1">
               <a href="#" className="text-gray-600 p-2 border text-primary border-primary rounded-full">
-                <Linkedin className="size-4 text-current"/>
+                <Linkedin className="size-5 text-current"/>
               </a>
               <a href="#" className="text-gray-600 p-2 border text-primary border-primary rounded-full">
-                <Facebook className="size-4 text-current"/>
+                <Facebook className="size-5 text-current"/>
               </a>
               <a href="#" className="text-gray-600 p-2 border text-primary border-primary rounded-full">
-                <Github className="size-4 text-current"/>
+                <Github className="size-5 text-current"/>
               </a>
             </div>
           </div>
@@ -98,13 +96,13 @@ export default function Footer() {
 
         <div className="mt-10 border-t border-gray-300 pt-4 text-center  ">
           <div className="flex justify-center ">
-          <Image
-        className="w-[150px] py-4"
-        width={300}
-        height={100}
-        src={`/assets/imgs/logo.png`}
-        alt=""
-      />
+            <Image
+              className="w-[150px] py-4"
+              width={300}
+              height={100}
+              src={`/assets/imgs/logo.png`}
+              alt=""
+            />
           </div>
         </div>
       </div>

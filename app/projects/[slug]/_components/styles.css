@@ -1,0 +1,21 @@
+.masonry-grid {
+    display: flex;
+    margin-left: -30px; /* المسافة بين الأعمدة */
+    width: auto;
+  }
+  
+  .masonry-grid_column {
+    padding-left: 30px; /* المسافة بين الأعمدة */
+    background-clip: padding-box;
+  }
+  
+  .masonry-item {
+    margin-bottom: 30px; /* المسافة بين الصور */
+  }
+  
+  .masonry-img {
+    width: 100%;
+    border-radius: 8px; /* حواف مستديرة للصور */
+    display: block;
+  }
+  

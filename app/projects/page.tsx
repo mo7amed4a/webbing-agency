@@ -1,7 +1,8 @@
 import React from "react";
 import HeroProjects from "./_components/Hero";
-import FirstProject from "./_components/FirstProject";
 import { api, graphql } from "@/lib/axios";
+import Project from "./_components/project";
+import ServicesBar from "./_components/ServicesBar";
 
 type TSearchParams = Promise<{
   projects: string;
@@ -39,9 +40,20 @@ export default async function Page({
   const services = resServices.data.data.services.slice(0, 6)
 
   return (
-    <div className="container lg:max-w-[80%] mx-auto">
+    <div className="">
+      
       <HeroProjects/>
-      <FirstProject projects={projects} services={services} />
+      <section className="bg-[#EFF6FF]">
+        <div className="container lg:max-w-[80%] mx-auto px-4">
+          <ServicesBar services={services} projectsSlug={projectsParams}/>
+          {
+            projects.map((project: any) => (
+              <Project key={project.id} project={project} />
+            ))
+          }
+        </div>
+      </section>
+      {/* <FirstProject projects={projects} services={services} /> */}
     </div>
   );
 }

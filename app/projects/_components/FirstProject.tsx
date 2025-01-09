@@ -8,12 +8,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-import { ServiceType } from "@/app/(Home)/_components/servises";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 export default async function FirstProject({
   projects,
-  services,
 }: {
   projects: {
     title: string;
@@ -27,29 +25,11 @@ export default async function FirstProject({
       url: string;
     }[];
   }[];
-  services: ServiceType[];
 }) {
   return (
     projects && (
       <div className="">
-        <div className=" container mx-auto">
-          <ScrollArea className="w-full px-4">
-            <ul className="w-full flex flex-nowrap justify-around text-[#b0a8a8] pt-5 gap-4">
-              <li className="text-[#1F7099] font-bold text-nowrap">
-                <Link href="/">All</Link>
-              </li>
-              {services &&
-                services.map((service: ServiceType) => (
-                  <li key={service.slug} className="text-nowrap">
-                    <Link href={`/projects?projects=${service.slug}`}>
-                      {service.title}
-                    </Link>
-                  </li>
-                ))}
-            </ul>
-            <ScrollBar orientation="horizontal" />
-          </ScrollArea>
-        </div>
+       
         <div className="pt-12">
           <div className="container mx-auto grid gap-4">
             {projects.map(

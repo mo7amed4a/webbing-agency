@@ -6,6 +6,7 @@ import RichViewer from "../_components/RichViewer";
 
 import { FiSmartphone } from "react-icons/fi";
 import VideoApp from "@/components/global/Video";
+import MasonryGallery from "./_components/images";
 
 const Projectdetails = async ({
   params,
@@ -281,13 +282,15 @@ variables: {
                 </div>
 
                 <div className="w-80 rounded-xl shadow-lg overflow-hidden">
-                  <Image
+                  {/* <Image
                     src={"/assets/imgs/image (47).png"}
                     alt="Project Image 2"
                     className="w-full h-auto object-cover"
                     width={200}
                     height={2000}
-                  />
+                  /> */}
+                  <MasonryGallery project={project} />
+
                 </div>
 
                 <div className="absolute top-16">

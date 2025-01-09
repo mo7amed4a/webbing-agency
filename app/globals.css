@@ -70,3 +70,10 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.swiper-slide {
+  @apply !scale-95
+}
+.swiper-slide.swiper-slide-active {
+  @apply md:!scale-x-125 md:!scale-y-105 z-10 transition-all duration-300
+}

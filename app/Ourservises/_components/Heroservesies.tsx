@@ -1,10 +1,10 @@
 import Link from "next/link";
 import React from "react";
 
-export default function Heroservices() {
+export default function HeroServices() {
   return (
     <div
-      className="w-full relative h-[500px] bg-cover bg-center"
+      className="w-full relative h-[700px] bg-cover bg-center"
       style={{
         backgroundImage: `url(/assets/imgs/f8198a29ee232f0f3986656aeef8d379.png)`,
       }}
