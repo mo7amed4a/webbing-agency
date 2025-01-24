@@ -14,7 +14,7 @@ export default function ServicesBar({
       {/* <ScrollArea className="w-full px-4"> */}
         <ul className="w-full flex flex-wrap text-[#b0a8a8] pt-5 gap-3">
           <li className={`bg-white font-bold text-nowrap border p-2 ${!projectsSlug ? 'border-primary text-primary rounded-md' : ''}`}>
-            <Link href="/">All</Link>
+            <Link href="/projects">All</Link>
           </li>
           {services &&
             services.map((service: ServiceType) => (

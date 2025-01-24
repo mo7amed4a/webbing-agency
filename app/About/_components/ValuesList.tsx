@@ -1,3 +1,8 @@
+"use client";
+import React from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+
 export default function ValuesList() {
   const values = [
     {
@@ -18,10 +23,12 @@ export default function ValuesList() {
       description:
         "Your success is our priority. We listen, learn, and adapt to your needs, delivering tailored solutions that evolve with the dynamic digital landscape.",
     },
-  ]
+  ];
+
+  const [ref, inView] = useInView({ triggerOnce: false, threshold: 0.3 });
 
   return (
-    <div  className="max-w-7xl mx-auto" >
+    <div className="max-w-7xl mx-auto">
       <div className="md:flex md:gap-6 relative">
         {/* Dashed line */}
         <div className="absolute left-4 top-4 bottom-4 w-[2px] md:w-full md:h-[2px] md:left-0 md:top-4 bg-[#4A90A7]/20 
@@ -33,9 +40,16 @@ export default function ValuesList() {
                         md:[background-position:top]
                         md:[background-size:9px_2px]
                         md:[background-repeat:repeat-x]" />
-        
-        {values.map((value) => (
-          <div key={value.id} className="relative mb-6 md:mb-0 md:flex-1">
+
+        {values.map((value, index) => (
+          <motion.div
+            key={value.id}
+            ref={ref}
+            initial={{ opacity: 0, y: 50 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: index * 0.2 }}
+            className="relative mb-6 md:mb-0 md:flex-1"
+          >
             <div className="flex gap-4 md:flex-col md:items-center md:text-center">
               <div className="flex-shrink-0 relative z-10">
                 <div className="w-8 h-8 rounded-full text-white flex items-center justify-center text-sm font-semibold" style={{background: "linear-gradient(90deg, #1F7099 0%, #A2C6D9 100%)"}}>
@@ -49,10 +63,9 @@ export default function ValuesList() {
                 </p>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>
-  )
+  );
 }
-

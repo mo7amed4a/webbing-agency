@@ -1,9 +1,15 @@
+'use client';
 import React from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 export default function Hero() {
   const heroimge = "/assets/imgs/image.png";
   const partimge = "/assets/imgs/59fe0f54cc381ab9e10410ad71c48cf4.png";
+
+  const [textRef, textInView] = useInView({ triggerOnce: false, threshold: 0.3 });
+  const [imageRef, imageInView] = useInView({ triggerOnce: false, threshold: 0.3 });
 
   return (
     <div
@@ -19,7 +25,13 @@ export default function Hero() {
         <div className="w-full min-h-screen">
           <div className="px-4 flex flex-col-reverse lg:flex-row items-center justify-center lg:justify-between">
             
-            <div className="lg:w-1/2 md:p-4 flex flex-col items-center lg:items-start text-center lg:text-left">
+            <motion.div 
+              ref={textRef}
+              className="lg:w-1/2 md:p-4 flex flex-col items-center lg:items-start text-center lg:text-left"
+              initial={{ opacity: 0, y: 50 }}
+              animate={textInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8 }}
+            >
               <h2 className="text-2xl sm:text-4xl md:text-6xl font-oxanium text-black mb-6">
                 Transforming Ideas into Digital Solutions
               </h2>
@@ -34,10 +46,15 @@ export default function Hero() {
               >
                 Get Started
               </button>
-            </div>
+            </motion.div>
 
-    
-            <div className="lg:w-1/2 p-4 flex justify-center lg:justify-end">
+            <motion.div 
+              ref={imageRef}
+              className="lg:w-1/2 p-4 flex justify-center lg:justify-end"
+              initial={{ opacity: 0, y: 50 }}
+              animate={imageInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
               <Image
                 width={300}
                 height={300}
@@ -45,11 +62,10 @@ export default function Hero() {
                 className="w-full h-[50vh] sm:h-[60vh] lg:h-[85vh] object-contain"
                 alt="Hero Part Image"
               />
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
     </div>
-    
-  )
+  );
 }
