@@ -74,7 +74,7 @@ const OurClient = () => {
   ];
 
   return (
-    <div className="w-full h-[500px]">
+    <div className="w-full h-[500px] bg-[#EFF6FF]">
       <div className="container mx-auto">
         <div className="p-[30px] text-center lg:text-left">
           <motion.h1

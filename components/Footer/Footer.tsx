@@ -81,7 +81,7 @@ export default function Footer() {
               Social Media
             </h3>
             <div className="flex gap-x-1">
-              <a href="#" className="text-gray-600 p-2 border text-primary border-primary rounded-full">
+              <a href="https://www.linkedin.com/company/webbing-agency/" className="text-gray-600 p-2 border text-primary border-primary rounded-full">
                 <Linkedin className="size-5 text-current"/>
               </a>
               <a href="#" className="text-gray-600 p-2 border text-primary border-primary rounded-full">

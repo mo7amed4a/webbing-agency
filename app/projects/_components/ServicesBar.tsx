@@ -13,16 +13,14 @@ export default function ServicesBar({
     <div className=" container mx-auto">
       {/* <ScrollArea className="w-full px-4"> */}
         <ul className="w-full flex flex-wrap text-[#b0a8a8] pt-5 gap-3">
-          <li className={`bg-white font-bold text-nowrap border p-2 ${!projectsSlug ? 'border-primary text-primary rounded-md' : ''}`}>
-            <Link href="/projects">All</Link>
-          </li>
+          <Link href="/projects" className={`bg-white font-bold text-nowrap border p-2 ${!projectsSlug ? 'border-primary text-primary rounded-md' : ''}`}>
+            All
+          </Link>
           {services &&
             services.map((service: ServiceType) => (
-              <li key={service.slug} className={`text-nowrap bg-white rounded-md p-2 border ${service.slug === projectsSlug ? 'border-primary text-primary rounded-md p-2' : ''}`}>
-                <Link href={`/projects?projects=${service.slug}`}>
-                  {service.title}
-                </Link>
-              </li>
+            <Link href={`/projects?projects=${service.slug}`} key={service.slug} className={`text-nowrap bg-white rounded-md p-2 dborder ${service.slug === projectsSlug ? 'border-2 border-primary text-primary rounded-md p-2' : ''}`}>
+              {service.title}
+            </Link>
             ))}
         </ul>
         {/* <ScrollBar orientation="horizontal" /> */}

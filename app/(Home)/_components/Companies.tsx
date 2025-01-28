@@ -28,7 +28,7 @@ export default function Companies() {
                 width={1500}
                 height={1500}
                 alt="Google"
-                className="mx-auto"
+                className="mx-auto p-8"
               />
             </motion.div>
           </CarouselItem>
@@ -45,7 +45,7 @@ export default function Companies() {
                 width={1500}
                 height={1500}
                 alt="Microsoft"
-                className="mx-auto"
+                className="mx-auto p-8"
               />
             </motion.div>
           </CarouselItem>
@@ -62,7 +62,7 @@ export default function Companies() {
                 width={1500}
                 height={1500}
                 alt="PayPal"
-                className="mx-auto"
+                className="mx-auto p-8"
               />
             </motion.div>
           </CarouselItem>
@@ -79,7 +79,7 @@ export default function Companies() {
                 width={1500}
                 height={1500}
                 alt="Dribbble"
-                className="mx-auto"
+                className="mx-auto md:p-8"
               />
             </motion.div>
           </CarouselItem>

@@ -35,7 +35,7 @@ export default function Project({
   const images = transformDataToGalleryFormat(project);
 
   return (
-    <Link href={`/projects/${project.slug}`} className="p-4 space-y-6 mt-40">
+    <Link href={`/projects/${project.slug}`} className="p-4 space-y-4 mt-40">
       <Card className="overflow-hidden bg-white shadow-lg rounded-3xl p-8 lg:grid lg:grid-cols-2">
         {/* Header Section */}
         <section className="flex flex-col justify-center">
@@ -50,12 +50,7 @@ export default function Project({
               <p className="text-gray-600 line-clamp-6">
                 {project?.desc && <RichViewer content={project?.desc} />}
               </p>
-              <Link
-                href={`/projects/${project.slug}`}
-                className="text-primary hover:underline inline-block"
-              >
-                Show Full Project
-              </Link>
+              
             </div>
           </motion.div>
 
@@ -116,7 +111,14 @@ export default function Project({
                   <RichViewer content={project?.description} />
                 )}
               </p>
+              <Link
+                href={`/projects/${project.slug}`}
+                className="text-primary hover:underline inline-block"
+              >
+                Show Full Project
+              </Link>
             </div>
+            
           </motion.div>
         </section>
 

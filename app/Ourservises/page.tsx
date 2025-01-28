@@ -82,7 +82,7 @@ export default function Services() {
                     <Image
                       src={service?.icon?.url}
                       alt="icon"
-                      className="size-6 md:size-8"
+                      className="size-6 md:size-8 object-cover"
                       width={2000}
                       height={2000}
                     />
