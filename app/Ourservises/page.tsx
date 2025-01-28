@@ -63,8 +63,8 @@ export default function Services() {
       <HeroServices />
       <div className="bg-[#eff6ff]">
         <div className="container lg:max-w-[85%] mx-auto grid md:grid-cols-2 lg:gap-12 md:ps-0 py-9 space-y-4">
-          <div className="px-4">
-            <ul className="space-y-4 grid grid-cols-2 md:grid-cols-1 gap-2">
+          <div className="px-4 lg:pt-10">
+            <ul className="space-y-4 lg:space-y-10 grid grid-cols-2 md:grid-cols-1 gap-2">
               {services.map((service: any, index: number) => (
                 <div
                   key={index}
@@ -73,9 +73,9 @@ export default function Services() {
                 >
                   <motion.div
                     whileHover={{ scale: 1.1 }}
-                    className={` bg-white p-3 rounded-tr-3xl rounded-bl-3xl rounded-br-lg rounded-tl-lg ${
+                    className={` bg-gradient-to-r from-[#1F7099] to-[#A1C5D8] p-3 rounded-tr-3xl rounded-bl-3xl rounded-br-lg rounded-tl-lg ${
                       selectedService?.slug === service.slug
-                        ? "ring-1 ring-primary"
+                        ? "!bg-primary"
                         : ""
                     }`}
                   >
@@ -89,7 +89,7 @@ export default function Services() {
                   </motion.div>
 
                   <motion.span
-                    className={` text-sm md:text-base ${
+                    className={` text-sm md:text-base lg:text-lg ${
                       selectedService?.slug === service.slug
                         ? "!text-primary font-bold"
                         : "text-gray-700"
@@ -104,7 +104,7 @@ export default function Services() {
           </div>
           {selectedService && (
             <motion.div
-              className="px-4 pt-10"
+              className="px-4 pt-2"
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
@@ -113,18 +113,15 @@ export default function Services() {
                 <h2 className="text-base md:text-3xl text-gray-900 font-oxanium">
                   {selectedService.title}
                 </h2>
-                <Link href={`/projects/`} className="text-primary border-b text-sm md:text-base border-primary">
-                  Show projects
-                </Link>
               </div>
               <Image
                 src={selectedService?.image?.url}
                 alt="Project Image"
-                className="object-cover mb-4 rounded-lg"
+                className="object-cover w-full mb-4 rounded-lg"
                 width={2000}
                 height={2000}
                 style={{
-                  width: "510px",
+                  // width: "510px",
                   height: "340px",
                 }}
               />
@@ -148,6 +145,14 @@ export default function Services() {
                     </motion.p>
                   )
                 )}
+              </div>
+              <div className="flex justify-start items-center">
+                <Link
+                  href={`/projects?projects=${selectedService.slug}`}
+                  className="text-primary hover:border-b md:text-xl text-base border-primary pt-8"
+                >
+                  Show projects
+                </Link>
               </div>
             </motion.div>
           )}

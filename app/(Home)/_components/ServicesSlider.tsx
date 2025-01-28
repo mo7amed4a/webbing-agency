@@ -47,7 +47,7 @@ export default function ServicesSlider({
                   alt={service.title} 
                   width={500}
                   height={500}
-                  className="size-[70px] rounded-full border p-2.5"
+                  className="size-[50px] bg-gradient-to-r from-[#1F7099] to-[#A1C5D8] rounded-full border p-2.5"
                   />
                 <div className="flex-grow flex flex-col justify-center space-y-3">
                   <h3 className="text-xl font-[300] font-oxanium">{service.title}</h3>

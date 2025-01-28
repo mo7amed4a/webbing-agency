@@ -22,17 +22,25 @@ const Projectdetails = async ({
     description
     desc
     slug
-    screenMobile {
-      alternativeText
-      url
+     web {
+      images {
+        alternativeText
+        url
+      }
+      dashboard {
+        alternativeText
+        url
+      }
+      web {
+        alternativeText
+        url
+      }
     }
-    screensMobile {
-      alternativeText
-      url
-    }
-    screenWeb {
-      alternativeText
-      url
+    mobile {
+      images {
+        alternativeText
+        url
+      }
     }
     vedio {
       alternativeText
@@ -58,15 +66,15 @@ const Projectdetails = async ({
     }
   }
 }
-`, 
-variables: {
-  "filters": {
-    "slug" : {
-      "eq": slug
-    }
-  },
-}
-  })
+`,
+    variables: {
+      filters: {
+        slug: {
+          eq: slug,
+        },
+      },
+    },
+  });
 
   if (res.data.data.projects.length === 0) {
     redirect("/");
@@ -81,15 +89,19 @@ variables: {
         style={{ backgroundImage: "url('/assets/imgs/adelbaba.png')" }}
       >
         <div className="flex flex-col justify-center items-start space-y-2 absolute top-1/2 left-8 transform -translate-y-1/2 p-4">
-          <h2 className="text-[#f3b852] text-4xl md:text-7xl font-bold [text-shadow:_0_1px_0_var(--tw-shadow-color)]">{project.title}</h2>
-          <p className="text-white text-4xl [text-shadow:_0_1px_0_var(--tw-shadow-color)] lg:w-2/4 text-wrap"><RichViewer content={project.desc} /></p>
+          <h2 className="text-[#f3b852] text-4xl md:text-7xl font-bold [text-shadow:_0_1px_0_var(--tw-shadow-color)]">
+            {project.title}
+          </h2>
+          <p className="text-white text-4xl [text-shadow:_0_1px_0_var(--tw-shadow-color)] lg:w-2/4 text-wrap">
+            <RichViewer content={project.desc} />
+          </p>
         </div>
 
         <div
-          className="hidden h-full absolute bottom-0 right-0 w-[657px] z-10 rounded-tl-[180px] rounded-bl-[180px] md:flex flex-col items-center justify-center gap-8 p-8"
+          className="hidden h-full absolute bottom-0 right-0 w-[657px] z-10 rounded-tl-[180px] rounded-bl-[180px] md:flex flex-col items-start justify-center gap-8 p-8"
           style={{ backgroundColor: "hsla(198, 35%, 44%, 0.9)" }}
         >
-          <h1 className="text-4xl text-center font-oxanium font-thin bg-gradient-to-b from-[#71a2b7] to-[#ffffff] bg-clip-text text-transparent">
+          <h1 className="text-4xl text-center font-oxanium font-thin lg:ms-8 bg-gradient-to-b from-[#71a2b7] to-[#ffffff] bg-clip-text text-transparent">
             Services Offered
           </h1>
 
@@ -100,7 +112,10 @@ variables: {
                 title: string;
                 icon: { url: string };
               }) => (
-                <div key={service.id} className="flex gap-4 items-center">
+                <div
+                  key={service.id}
+                  className="flex gap-4 items-center lg:ms-8"
+                >
                   {service.icon && service.icon.url ? (
                     <Image
                       src={`${service.icon.url}`}
@@ -173,9 +188,9 @@ variables: {
                   service: {
                     technologies: {
                       name: string;
-                      logo : {
-                        url: string
-                      }[]
+                      logo: {
+                        url: string;
+                      }[];
                     }[];
                     title: string;
                   },
@@ -195,20 +210,22 @@ variables: {
                             tech: {
                               name: string;
                               logo: {
-                                url: string
-                              }[]
+                                url: string;
+                              }[];
                             },
                             techIndex: number
                           ) => (
-                            <li key={techIndex} className="flex items-center gap-x-2">
+                            <li
+                              key={techIndex}
+                              className="flex items-center gap-x-2"
+                            >
                               <Image
-                               
-                                src={ tech?.logo[0]?.url}
+                                src={tech?.logo[0]?.url}
                                 width={500}
                                 height={500}
                                 alt=""
                                 className="w-4 h-4 ml-2"
-                                />
+                              />
                               <span>{tech.name || "No Name"}</span>
                             </li>
                           )
@@ -258,12 +275,20 @@ variables: {
                 <p className="text-lg font-bold mt-2">1. Mobile App</p>
               </div>
 
-              <div className="flex flex-col lg:flex-row items-center justify-center gap-32 relative lg:px-32 py-10">
-                <div className="w-80 rounded-xl  overflow-hidden">
+             
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-[130rem] px-4 mx-auto flex flex-col lg:flex-row items-center justify-between gap-32 relative lg:px-10 py-10">
+                <div className="mw-80 rounded-xl overflow-hidden">
                   {project.vedio && (
                     <div className="flex h- justify-center items-center my-8 sm:my-10 lg:my-12 w-full">
                       <div className="w-full sm:w-80 md:w-96 lg:w-[480px]  xl:w-[480px]">
-                        {project.vedio.url && <VideoApp url={project.vedio.url} />}
+                        {project.vedio.url && (
+                          <VideoApp url={project.vedio.url} />
+                        )}
                       </div>
                     </div>
                   )}
@@ -281,7 +306,7 @@ variables: {
                   </div>
                 </div>
 
-                <div className="w-80 rounded-xl shadow-lg overflow-hidden">
+                <div className="dw-80 rounded-xl overflow-hidden">
                   {/* <Image
                     src={"/assets/imgs/image (47).png"}
                     alt="Project Image 2"
@@ -289,20 +314,17 @@ variables: {
                     width={200}
                     height={2000}
                   /> */}
-                  <MasonryGallery project={project} />
-
+                  <div className="w-[80%]">
+                    <MasonryGallery project={project} />
+                  </div>
                 </div>
 
-                <div className="absolute top-16">
+                {/* <div className="absolute top-16">
                   <p className="text-center mt-14 text-black font-semibold text-lg">
                     Try me
                   </p>
-                </div>
+                </div> */}
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   );
 };

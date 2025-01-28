@@ -18,8 +18,9 @@ export default function ServicesBar({
           </Link>
           {services &&
             services.map((service: ServiceType) => (
-            <Link href={`/projects?projects=${service.slug}`} key={service.slug} className={`text-nowrap bg-white rounded-md p-2 dborder ${service.slug === projectsSlug ? 'border-2 border-primary text-primary rounded-md p-2' : ''}`}>
-              {service.title}
+            <Link href={`/projects?projects=${service.slug}`} key={service.slug} className={`text-nowrap bg-white rounded-md p-2 ${service.slug === projectsSlug ? 'border-2 border-primary text-primary rounded-md p-2' : ''}`}>
+              {service.title} 
+              {projectsSlug === service.slug}
             </Link>
             ))}
         </ul>

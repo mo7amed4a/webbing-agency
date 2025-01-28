@@ -20,7 +20,7 @@ export default function HeroServices() {
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center text-4xl p-6 font-oxanium"
+          className="text-center text-4xl lg:text-6xl p-6 font-oxanium"
         >
           Our <span className="text-[#1F7099]">Services</span>
         </motion.h1>
@@ -29,7 +29,7 @@ export default function HeroServices() {
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-lg text-black mb-6"
+          className="text-lg md:text-2xl text-black mb-6"
         >
           Explore the wide range of solutions we offer to take your business to
           the next level.

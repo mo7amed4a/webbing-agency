@@ -12,8 +12,7 @@ import Link from "next/link";
 import Image from "next/image";
 import RichViewer from "./RichViewer";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+// import { useInView } from "react-intersection-observer";
 
 export default function Project({
   project,
@@ -24,41 +23,47 @@ export default function Project({
     desc: [];
     services: { title: string; documentId: string }[];
     description: [];
-    screenMobile: { url: string };
-    screenWeb: { url: string };
-    screensMobile: {
-      url: string;
-    }[];
+    web: { 
+      web: {
+        url: string
+        alternativeText: string
+      }
+      images: {
+        url: string
+        alternativeText: string
+      }[]
+      dashboard: {
+        url: string
+        alternativeText: string
+      }
+     };
+    mobile: {
+      images: {
+        url: string
+        alternativeText: string
+      }[]
+    }
   };
 }) {
-  const [ref, inView] = useInView({ triggerOnce: false, threshold: 0.3 });
+  // const [ref, inView] = useInView({ triggerOnce: false, threshold: 0.3 });
   const images = transformDataToGalleryFormat(project);
 
   return (
-    <Link href={`/projects/${project.slug}`} className="p-4 space-y-4 mt-40">
+    <div className="p-4 space-y-4 mt-40">
       <Card className="overflow-hidden bg-white shadow-lg rounded-3xl p-8 lg:grid lg:grid-cols-2">
         {/* Header Section */}
-        <section className="flex flex-col justify-center">
-          <motion.div
-            ref={ref}
-            initial={{ opacity: 0, y: 50 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
-          >
+        <Link href={`/projects/${project.slug}`}  className="flex flex-col justify-center">
+          <div>
             <div className="space-y-2 mb-6">
               <h1 className="text-3xl font-bold">{project.title}</h1>
               <p className="text-gray-600 line-clamp-6">
                 {project?.desc && <RichViewer content={project?.desc} />}
               </p>
-              
             </div>
-          </motion.div>
+          </div>
 
           {/* Device Frame with Carousel */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
+          <div
             className="relative rounded-[2.5rem] p-4 mb-8 md:hidden"
           >
             <Carousel className="w-full">
@@ -80,13 +85,10 @@ export default function Project({
               <CarouselPrevious className="absolute left-[-2rem] top-1/2 transform -translate-y-1/2" />
               <CarouselNext className="absolute right-[-2rem] top-1/2 transform -translate-y-1/2" />
             </Carousel>
-          </motion.div>
+          </div>
 
           {/* Services Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
+          <div
             className="space-y-4 mb-8"
           >
             <span className="text-primary">Services Offered: </span>
@@ -95,13 +97,10 @@ export default function Project({
                 <span key={service.documentId}>{service.title},</span>
               )
             )}
-          </motion.div>
+          </div>
 
           {/* Project Description */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.6 }}
+          <div
             className="space-y-4"
           >
             <div className="text-muted-foreground text-lg flex flex-wrap">
@@ -119,67 +118,83 @@ export default function Project({
               </Link>
             </div>
             
-          </motion.div>
-        </section>
+          </div>
+        </Link>
 
         {/* Images Section */}
-        <motion.section
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.8 }}
+        {project.web && <section
         >
-          <CardContent className="p-4 6">
+          <CardContent className="p-4 6 hidden md:block">
             <div className="grid grid-cols-2 gap-4 items-center h-full">
               <ScrollArea className="lg:h-[32rem]">
-                {project.screenMobile && (
+                {project?.web?.web && (
                   <div className="w-full h-auto sm:mr-8">
                     <Image
                       width={400}
                       height={400}
                       className="w-full h-auto object-contain lg:border rounded-lg"
-                      src={project.screenMobile.url}
-                      alt="Main image"
+                      src={project?.web?.web.url}
+                      alt={project?.web?.web?.alternativeText}
                     />
                   </div>
                 )}
               </ScrollArea>
               <div className="grid items-center gap-4">
                 <div className="w-full flex h-full gap-4">
-                  {project.screensMobile &&
-                    project.screensMobile.map((e, index) => (
-                      <ScrollArea key={index} className="h-64 w-full">
+                  {project?.web?.images &&
+                    project?.web?.images?.map((e, index) => (
+                      <ScrollArea key={index} className="h-64 w-full even:!mt-10">
                         <Image
                           width={400}
                           height={400}
-                          className="w-full h-auto border border-black rounded-lg"
+                          className="w-full h-auto rounded-lg"
                           src={e.url}
-                          alt="Large bottom image"
+                          alt={e.alternativeText}
                         />
                       </ScrollArea>
                     ))}
                 </div>
-                {project.screenWeb && (
+                {project?.web?.dashboard && (
                   <ScrollArea className="h-64">
                     <Image
                       width={400}
                       height={400}
-                      className="w-full sm:w-full h-auto border border-black rounded-lg"
-                      src={project.screenWeb.url}
-                      alt="Large bottom image"
+                      className="w-full sm:w-full h-auto rounded-lg"
+                      src={project?.web?.dashboard.url}
+                      alt={project?.web?.dashboard.alternativeText}
                     />
                   </ScrollArea>
                 )}
               </div>
             </div>
           </CardContent>
-        </motion.section>
+        </section>}
+        {
+          project.mobile &&  
+          <div className="md:grid items-center gap-4 hidden">
+          <div className="w-full flex h-full gap-4">
+            {project?.mobile?.images &&
+              project?.mobile?.images?.map((e, index) => (
+                <ScrollArea key={index} className="h-full w-full even:!mt-10">
+                  <Image
+                    width={400}
+                    height={400}
+                    className="w-full h-auto rounded-lg"
+                    src={e.url}
+                    alt={e.alternativeText}
+                  />
+                </ScrollArea>
+              ))}
+          </div>
+        </div>
+        }
       </Card>
-    </Link>
+    </div>
   );
 }
 
 export function transformDataToGalleryFormat(data: any) {
-  const { screenMobile, screensMobile, screenWeb } = data;
+  const images = [];
 
   const getImageObject = (image: any) => ({
     src: image.url,
@@ -188,21 +203,24 @@ export function transformDataToGalleryFormat(data: any) {
     alt: image.alternativeText || "No description available",
   });
 
-  const images = [];
-
-  // Add single screenMobile image
-  if (screenMobile) {
-    images.push(getImageObject(screenMobile));
+  // إضافة صور الويب من المصفوفة web.images
+  if (data.web?.images?.length) {
+    images.push(...data.web.images.map(getImageObject));
   }
 
-  // Add screensMobile array
-  if (screensMobile && screensMobile.length > 0) {
-    images.push(...screensMobile.map(getImageObject));
+  // إضافة صورة web.web
+  if (data.web?.web) {
+    images.push(getImageObject(data.web.web));
   }
 
-  // Add single screenWeb image
-  if (screenWeb) {
-    images.push(getImageObject(screenWeb));
+  // إضافة صورة web.dashboard
+  if (data.web?.dashboard) {
+    images.push(getImageObject(data.web.dashboard));
+  }
+
+  // إضافة صورة الموبايل
+  if (data.mobile) {
+    images.push(...data.mobile.images.map(getImageObject));
   }
 
   return images;

@@ -1,8 +1,9 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Masonry from "react-masonry-css";
 import "./styles.css"; // يمكن تخصيص التنسيقات هنا
 import { transformDataToGalleryFormat } from "../../_components/project";
+import ImageModal from "./ImageModal";
 
 
 export default function MasonryGallery({
@@ -28,7 +29,25 @@ export default function MasonryGallery({
   };
 
     const images = transformDataToGalleryFormat(project)
-
+    const [modalOpen, setModalOpen] = useState(false)
+    const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  
+    const openModal = (index: number) => {
+      setCurrentImageIndex(index)
+      setModalOpen(true)
+    }
+  
+    const closeModal = () => {
+      setModalOpen(false)
+    }
+  
+    const nextImage = () => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length)
+    }
+  
+    const prevImage = () => {
+      setCurrentImageIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length)
+    }
   return (
     <div className="gallery-container">
       <Masonry
@@ -38,10 +57,21 @@ export default function MasonryGallery({
       >
         {images.map((image, index) => (
           <div key={index} className="masonry-item">
-            <img src={image.src} alt={`Image ${index}`} className="masonry-img" />
+            <img src={image.src} alt={`Image ${index}`}               onClick={() => openModal(index)}
+ className="masonry-img" />
           </div>
         ))}
       </Masonry>
+
+      {modalOpen && (
+        <ImageModal
+          images={images}
+          currentIndex={currentImageIndex}
+          onClose={closeModal}
+          onNext={nextImage}
+          onPrev={prevImage}
+        />
+      )}
     </div>
   );
 }

@@ -46,7 +46,7 @@ export default function HeroProjects() {
           animate={imageInView ? { opacity: 1, x: 0 } : {}} // التحريك عند الظهور
           transition={{ duration: 0.8 }} // مدة التحريك
         >
-          <div className="border-2 border-dashed rounded-se-[3rem] rounded-es-[3rem] border-primary">
+          <div className="border-2 border-dashed rounded-se-[3zzrem] rounded-es-[3rem] border-primary">
             <Image
               width={400}
               height={400}

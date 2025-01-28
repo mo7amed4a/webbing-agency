@@ -1,6 +1,6 @@
 import React from "react";
 import HeroProjects from "./_components/Hero";
-import { api, graphql } from "@/lib/axios";
+import { graphql } from "@/lib/axios";
 import Project from "./_components/project";
 import ServicesBar from "./_components/ServicesBar";
 
@@ -15,13 +15,13 @@ export default async function Page({
 }) {
   const projectsParams = (await searchParams)?.projects;
 
-  let url = `/projects?populate=*`;
-  if (projectsParams) {
-    url += `&filters[$and][0][services][slug][$contains]=${projectsParams}`;
-  }
+  // let url = `/projects?populate=*`;
+  // if (projectsParams) {
+  //   url += `&filters[$and][0][services][slug][$contains]=${projectsParams}`;
+  // }
 
-  const res = await api.get(url);
-  const projects = res.data.data;
+  // const res = await api.get(url);
+  // const projects = res.data.data;
 
   const resServices = await graphql
   .post("", {
@@ -39,6 +39,44 @@ export default async function Page({
   })
   const services = resServices.data.data.services.slice(0, 6)
 
+  const resProjects = await graphql
+  .post("", {
+    query: `query Projects {
+  projects {
+    documentId
+    title
+    slug
+    desc
+    description
+    services {
+      title
+      slug
+    }
+    web {
+      images {
+        alternativeText
+        url
+      }
+      dashboard {
+        alternativeText
+        url
+      }
+      web {
+        alternativeText
+        url
+      }
+    }
+    mobile {
+      images {
+        alternativeText
+        url
+      }
+    }
+  }
+}`,
+  })
+  const projects = resProjects.data.data.projects
+
   return (
     <div className="">
       
@@ -47,7 +85,7 @@ export default async function Page({
         <div className="container lg:max-w-[80%] mx-auto px-4">
           <ServicesBar services={services} projectsSlug={projectsParams}/>
           {
-            projects.map((project: any) => (
+            projects?.map((project: any) => (
               <Project key={project.id} project={project} />
             ))
           }
