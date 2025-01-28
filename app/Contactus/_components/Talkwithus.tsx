@@ -31,7 +31,7 @@ export default function Contactus() {
     { resetForm }: { resetForm: () => void }
   ) => {
     try {
-      const req = await api.post("/contacts", { data: values });
+      await api.post("/contacts", { data: values });
       router.push('/thanks')
       resetForm();
     } catch (error) {

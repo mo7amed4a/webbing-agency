@@ -84,10 +84,10 @@ export default function Footer() {
               <a href="https://www.linkedin.com/company/webbing-agency/" className="text-gray-600 p-2 border text-primary border-primary rounded-full">
                 <Linkedin className="size-5 text-current"/>
               </a>
-              <a href="#" className="text-gray-600 p-2 border text-primary border-primary rounded-full">
+              <a href="https://web.facebook.com/webbing.agency24" className="text-gray-600 p-2 border text-primary border-primary rounded-full">
                 <Facebook className="size-5 text-current"/>
               </a>
-              <a href="#" className="text-gray-600 p-2 border text-primary border-primary rounded-full">
+              <a href="https://github.com/Webbing-21" className="text-gray-600 p-2 border text-primary border-primary rounded-full">
                 <Github className="size-5 text-current"/>
               </a>
             </div>

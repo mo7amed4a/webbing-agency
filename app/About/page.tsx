@@ -41,12 +41,10 @@ export default async function AboutUs() {
         </div>
         <Image src={part} className="w-full" alt="" />
       </section>
-
-        <section className="bg-[#eff6ff] pt-40 px-4 pb-40 space-y-10 md:space-y-32">
-          <OurStory description={about?.description} />
-          <ValuesList />
-        </section>
-
+      <section className="bg-[#eff6ff] pt-40 px-4 pb-40 space-y-10 md:space-y-32">
+        <OurStory description={about?.description} />
+        <ValuesList />
+      </section>
     </div>
   );
 }
