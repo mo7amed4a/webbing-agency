@@ -91,7 +91,7 @@ const Projectdetails = async ({
     <div className="-mt-10">
       <div
         className="w-full h-screen bg-cover bg-center mt-10 relative"
-        style={{ backgroundImage: `url(${project.cover?.url})` }}
+        style={{ backgroundImage: `url(${project.cover?.url || '/assets/imgs/adelbaba.png' })`}}
       >
         <div className="flex flex-col justify-center items-start space-y-2 absolute top-1/2 left-8 transform -translate-y-1/2 p-4">
           <h2 className="text-4xl md:text-7xl font-bold [text-shadow:_0_1px_0_var(--tw-shadow-color)]"

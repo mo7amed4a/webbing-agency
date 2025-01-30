@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const baseUrl = "http://192.168.1.22:1337"//"https://admin.webbing-agency.com";
+export const baseUrl = "https://admin.webbing-agency.com";
 export const api = axios.create({
     baseURL: `${baseUrl}/api`,
     headers: {
