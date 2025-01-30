@@ -13,6 +13,7 @@ export default function Home() {
       <Chooses />
     {/* <OurTeam /> */}
       <OurClient />
+      <div className="p-24 md:hidden"></div>
     </>
   );
 }

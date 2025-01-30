@@ -3,6 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import Link from 'next/link';
 
 export default function Hero() {
   const heroimge = "/assets/imgs/image.png";
@@ -38,14 +39,14 @@ export default function Hero() {
               <p className="text-sm sm:text-lg md:text-2xl font-thin mb-4 sm:mb-5">
                 We deliver innovative UI/UX design, website and app development, and social media solutions tailored to your business needs. Let’s turn your ideas into impactful digital solutions.
               </p>
-              <button
+              <Link href="/Contactus"
                 className="text-white py-2 px-6 sm:px-[70px] rounded-full"
                 style={{
                   background: 'linear-gradient(to left, #A2C6D9, #1F7099)',
                 }}
               >
                 Get Started
-              </button>
+              </Link>
             </motion.div>
 
             <motion.div 
