@@ -12,7 +12,7 @@ export default function Contactus() {
           Contact Us
         </h1>
       </div>
-<Talkwithus></Talkwithus>
+      <Talkwithus></Talkwithus>
       
     </div>
   );

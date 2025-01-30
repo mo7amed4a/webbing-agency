@@ -41,7 +41,7 @@ export default function Contactus() {
 
   return (
     <div className="w-full min-h-screen flex items-center justify-center bg-[#f3f7fc]">
-      <div className="w-full max-w-[90rem] bg-white shadow-lg rounded-lg overflow-hidden flex flex-col md:flex-row">
+      <div className="w-full max-w-[90rem] bg-white shadow-lg rounded-lg overflow-hidden flex flex-col-reverse md:flex-row">
         <div className="bg-gradient-to-r m-2 rounded-xl from-[#1F7099] to-[#A1C5D8] text-white p-8 md:w-2/5
           flex-col flex justify-center
         ">
