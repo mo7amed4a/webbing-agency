@@ -313,7 +313,7 @@ const Projectdetails = async ({
                   </div>
                 </div>
 
-                <div className="dw-80 rounded-xl overflow-hidden">
+                <div className="lg:w-1/2 rounded-xl overflow-hidden">
                   {/* <Image
                     src={"/assets/imgs/image (47).png"}
                     alt="Project Image 2"
