@@ -4,7 +4,14 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="py-10 px-4 container lg:max-w-[95%] mx-auto">
+    <footer className="py-10 px-4 container lg:max-w-[95%] mx-auto relative">
+      <Image
+        className="w-full h-full py-4 absolute inset-0"
+        width={1500}
+        height={1500}
+        src={`/footer/footer.png`}
+        alt=""
+      />
       <Image
         className="w-[230px] py-4"
         width={500}

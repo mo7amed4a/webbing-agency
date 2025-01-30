@@ -46,6 +46,11 @@ const Projectdetails = async ({
       alternativeText
       url
     }
+    cover {
+      alternativeText
+      url
+    }
+    color
     services {
       title
       image {
@@ -86,10 +91,12 @@ const Projectdetails = async ({
     <div className="-mt-10">
       <div
         className="w-full h-screen bg-cover bg-center mt-10 relative"
-        style={{ backgroundImage: "url('/assets/imgs/adelbaba.png')" }}
+        style={{ backgroundImage: `url(${project.cover?.url})` }}
       >
         <div className="flex flex-col justify-center items-start space-y-2 absolute top-1/2 left-8 transform -translate-y-1/2 p-4">
-          <h2 className="text-[#f3b852] text-4xl md:text-7xl font-bold [text-shadow:_0_1px_0_var(--tw-shadow-color)]">
+          <h2 className="text-4xl md:text-7xl font-bold [text-shadow:_0_1px_0_var(--tw-shadow-color)]"
+              style={{color: project.color || "#f3b852"}}
+            >
             {project.title}
           </h2>
           <p className="text-white text-4xl [text-shadow:_0_1px_0_var(--tw-shadow-color)] lg:w-2/4 text-wrap">

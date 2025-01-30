@@ -142,7 +142,7 @@ export default function Project({
               <div className="grid items-center gap-4">
                 <div className="w-full flex h-full gap-4">
                   {project?.web?.images &&
-                    project?.web?.images?.map((e, index) => (
+                    project?.web?.images?.slice(0, 3)?.map((e, index) => (
                       <ScrollArea key={index} className="h-64 w-full even:!mt-10">
                         <Image
                           width={400}
@@ -174,7 +174,7 @@ export default function Project({
           <div className="md:grid items-center gap-4 hidden">
           <div className="w-full flex h-full gap-4">
             {project?.mobile?.images &&
-              project?.mobile?.images?.map((e, index) => (
+              project?.mobile?.images?.slice(0, 3)?.map((e, index) => (
                 <ScrollArea key={index} className="h-full w-full even:!mt-10">
                   <Image
                     width={400}
